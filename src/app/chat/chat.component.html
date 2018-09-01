@@ -3,5 +3,11 @@
    Post
  </button>
  <tr *ngFor="let msg of messages | async;">
-   <td>{{msg.msg}}</td>
+  <td>
+   {{msg.user}}
+  </td>
+  <td>
+    -
+  </td>
+  <td>{{msg.msg}}</td>
 </tr>

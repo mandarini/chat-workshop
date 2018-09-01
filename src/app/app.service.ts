@@ -6,7 +6,6 @@ import {
   AngularFirestore,
   AngularFirestoreCollection
 } from "angularfire2/firestore";
-import config from "app.config.js";
 
 @Injectable({
   providedIn: 'root'
@@ -18,10 +17,10 @@ export class AppService {
 
   constructor(private db: AngularFirestore) {
      //Get the tasks collection
-     this.messages = db.collection<Message>(config.collection_endpoint);
+     this.messages = db.collection<Message>("messages");
   }
 
-  sendMsg(msg) {
+  addMsg(msg) {
     this.messages.add(msg);
   }
 }

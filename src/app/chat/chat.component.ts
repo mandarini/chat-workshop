@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { AppService } from '../app.service';
 import { Observable } from 'rxjs';
-import config from "../app.config.js";
 
 @Component({
   selector: 'app-chat',
@@ -20,13 +19,17 @@ export class ChatComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.messages = this.db.collection(config.collection_endpoint).valueChanges();
+    this.messages = this.db.collection("messages").valueChanges();
   }
 
   sendMsg(msg) {
     if (msg !== null) {
       console.log(msg);
-      // this.taskService.addTask(task);
+      let message = {
+        msg: msg,
+        user: this.userAuth
+      };
+      this.msgService.addMsg(message);
     }
   }
 

@@ -1,6 +1,6 @@
 <div *ngIf="afAuth.user | async as user; else showLogin">
   <h1>Hello {{ user.displayName }}!</h1>
-  <app-map [userAuth]="user.displayName"></app-map>
+  <app-chat [userAuth]="user.displayName"></app-chat>
   <button (click)="logout()">Logout</button>
 </div>
 <ng-template #showLogin>

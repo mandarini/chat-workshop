@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-input',
@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InputComponent implements OnInit {
 
+  @Input() chatMsg: string;
+
   constructor() { }
 
   ngOnInit() {
   }
+
+  sendMsg(msg) {
+   if (msg !== null) {
+     console.log(msg);
+      // this.taskService.addTask(task);
+   }
+ }
 
 }

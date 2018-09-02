@@ -9,6 +9,7 @@ import { Message } from '../app.model';
 export class MessageComponent implements OnInit {
 
   @Input() message: Message;
+  @Input() userAuth: string;
 
   constructor() { }
 

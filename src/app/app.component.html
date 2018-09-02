@@ -1,2 +1,9 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<app-landing></app-landing>
+<div *ngIf="afAuth.user | async as user; else showLogin">
+  <h2>Hello {{ user.displayName }}!</h2>
+  <app-chat [userAuth]="user.displayName"></app-chat>
+  <button class="logout-btn" (click)="logout()">Logout</button>
+</div>
+<ng-template #showLogin>
+  <p>Please login.</p>
+  <button (click)="login()">Login with Google</button>
+</ng-template>

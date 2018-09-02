@@ -7,7 +7,6 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { AppComponent } from './app.component';
-import { LandingComponent } from './landing/landing.component';
 import { MessageComponent } from './message/message.component';
 import { ChatComponent } from './chat/chat.component';
 import { InputComponent } from './input/input.component';
@@ -25,7 +24,6 @@ const config = {
 @NgModule({
   declarations: [
     AppComponent,
-    LandingComponent,
     MessageComponent,
     ChatComponent,
     InputComponent,

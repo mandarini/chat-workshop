@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { AppService } from '../app.service';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-input',
@@ -8,17 +10,22 @@ import { Component, OnInit, Input } from '@angular/core';
 export class InputComponent implements OnInit {
 
   @Input() chatMsg: string;
+  @Input() userAuth: string;
 
-  constructor() { }
+  constructor(private msgService: AppService) { }
 
   ngOnInit() {
   }
 
   sendMsg(msg) {
-   if (msg !== null) {
-     console.log(msg);
-      // this.taskService.addTask(task);
-   }
- }
+    if (msg !== null) {
+      let message = {
+        msg: msg,
+        user: this.userAuth,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      };
+      this.msgService.addMsg(message);
+    }
+  }
 
 }

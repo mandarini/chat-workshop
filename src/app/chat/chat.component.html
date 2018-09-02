@@ -2,12 +2,8 @@
  <button (click)="sendMsg(chatMsg.value)">
    Post
  </button>
- <tr *ngFor="let msg of messages | async;">
-  <td>
-   {{msg.user}}
-  </td>
-  <td>
-    -
-  </td>
-  <td>{{msg.msg}}</td>
-</tr>
+ <div>
+   <div *ngFor="let msg of messages | async;">
+     <app-message [message]="msg"></app-message>
+   </div>
+ </div>

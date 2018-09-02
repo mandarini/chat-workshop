@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Message } from "./app.model";
-import { Injectable } from "@angular/core";
 import {
   AngularFirestoreDocument,
   AngularFirestore,
@@ -16,7 +15,6 @@ export class AppService {
   private msgDoc: AngularFirestoreDocument<Message>;
 
   constructor(private db: AngularFirestore) {
-     //Get the tasks collection
      this.messages = db.collection<Message>("messages");
   }
 

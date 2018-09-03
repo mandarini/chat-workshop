@@ -9,7 +9,6 @@ import * as firebase from 'firebase';
 })
 export class InputComponent implements OnInit {
 
-  @Input() chatMsg: string;
   @Input() userAuth: string;
 
   constructor(private msgService: AppService) { }

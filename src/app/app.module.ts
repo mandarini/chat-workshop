@@ -1,25 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule }   from '@angular/forms';
 
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
-import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from '../environments/environment';
+
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { MessageComponent } from './message/message.component';
 import { ChatComponent } from './chat/chat.component';
 import { InputComponent } from './input/input.component';
-
-const config = {
-  apiKey: "<YOUR_API_KEY_HERE>",
-  authDomain: "YOUR-PROJECT-ID.firebaseapp.com",
-  databaseURL: "https://YOUR-PROJECT-ID.firebaseio.com",
-  projectId: "YOUR-PROJECT-ID",
-  storageBucket: "YOUR-PROJECT-ID.appspot.com",
-  messagingSenderId: "YOUR-MESSAGE-ID"
-};
-
+import { HomeComponent } from './home/home.component';
+import { UsersComponent } from './users/users.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -27,13 +23,17 @@ const config = {
     MessageComponent,
     ChatComponent,
     InputComponent,
+    HomeComponent,
+    UsersComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp(config),
-    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AppRoutingModule,
+    FormsModule
   ],
   bootstrap: [AppComponent]
 })

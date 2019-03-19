@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, AfterViewChecked, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Message } from '../app.model';
@@ -13,7 +13,7 @@ export class ChatComponent implements OnInit {
   @ViewChild('msgContainer') private messagesContainer: ElementRef;
 
   @Input() userAuth: string;
-  messages: Observable<any[]>;
+  messages: Observable<Message[]>;
   private msgRef: AngularFirestoreCollection<Message>;
 
   constructor(private db: AngularFirestore) {
